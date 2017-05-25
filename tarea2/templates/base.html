@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Naive fly{% if title %} :: {{ title }}{% endif %}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/semantic/semantic.min.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/util.css') }}"/>
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block modals %}{% endblock %}
+<script type="application/javascript" src="{{ url_for('static', filename='js/jquery-3.2.0.min.js') }}"></script>
+<script type="application/javascript"
+        src="{{ url_for('static', filename='vendor/semantic/semantic.min.js') }}"></script>
+<script type="application/javascript"
+        src="{{ url_for('static', filename='vendor/underscore/underscore-min.js') }}"></script>
+<script type="application/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

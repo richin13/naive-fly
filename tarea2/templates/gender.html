@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="ui huge header">
+    <div class="content">
+      Sexo del estudiante
+      <div class="sub header">Clasificación usando Naive Bayes</div>
+    </div>
+  </div>
+  <p>En este caso se pretende determinar el sexo del visitante. Para esto se solicitan tres parámetros: Estilo de
+    aprendizaje, Recinto de origen y Promedio de Matrícula. De igual forma, estos datos son comparados con los datos
+    existentes en la base de datos.</p>
+  {% include 'includes/_result.html' %}
+  <div class="ui divider"></div>
+  <form action="{{ url_for('gender') }}" method="post" class="ui form {% if form.errors %}error{% endif %}">
+    {{ form.hidden_tag() }}
+    <div class="ui stackable centered grid">
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <div class="ui stackable segment">
+            <div class="field">
+              {{ form.place.label }}
+              {{ form.place(class_='ui dropdown') }}
+            </div>
+            <div class="field {% if form.prom.errors %}error{% endif %}">
+              {{ form.prom.label }}
+              {{ form.prom(class_='ui drpdown') }}
+              {% if form.prom.errors %}
+                <div class="ui error message">
+                  <div class="header">Error de validación</div>
+                  <ul class="list">
+                    {% for error in form.prom.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
+            <div class="field">
+              {{ form.style.label }}
+              {{ form.style(class_='ui dropdown') }}
+              <div class="ui info icon message">
+                <i class="info icon"></i>
+                <div class="content">
+                  <div class="header">Información</div>
+                  Si no conoce su estilo de aprendizaje puede tomar el test en el siguiente <a
+                    href="{{ url_for('classic_styles') }}">enlace</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <button class="ui right floated primary big button" type="submit"><i
+              class="send icon"></i>Enviar
+          </button>
+          <button class="ui right floated big button" type="reset"><i class="undo icon"></i>Resetear</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="ui divider"></div>
+{% endblock %}

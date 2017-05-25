@@ -1,0 +1,114 @@
+{
+  "m": 3,
+  "size": 10,
+  "raw_data": {
+    "Yes": [
+      [
+        "Red",
+        "Sports",
+        "Domestic"
+      ],
+      [
+        "Red",
+        "Sports",
+        "Domestic"
+      ],
+      [
+        "Yellow",
+        "Sports",
+        "Imported"
+      ],
+      [
+        "Yellow",
+        "SUV",
+        "Imported"
+      ],
+      [
+        "Red",
+        "Sports",
+        "Imported"
+      ]
+    ],
+    "No": [
+      [
+        "Red",
+        "Sports",
+        "Domestic"
+      ],
+      [
+        "Yellow",
+        "Sports",
+        "Domestic"
+      ],
+      [
+        "Yellow",
+        "SUV",
+        "Imported"
+      ],
+      [
+        "Yellow",
+        "SUV",
+        "Domestic"
+      ],
+      [
+        "Red",
+        "SUV",
+        "Imported"
+      ]
+    ]
+  },
+  "dataset": {
+    "Yes": {
+      "Red": {
+        "p": 0.5,
+        "n_c": 3
+      },
+      "Sports": {
+        "p": 0.5,
+        "n_c": 4
+      },
+      "Domestic": {
+        "p": 0.5,
+        "n_c": 2
+      },
+      "Yellow": {
+        "p": 0.5,
+        "n_c": 2
+      },
+      "Imported": {
+        "p": 0.5,
+        "n_c": 3
+      },
+      "SUV": {
+        "p": 0.5,
+        "n_c": 1
+      }
+    },
+    "No": {
+      "Red": {
+        "p": 0.5,
+        "n_c": 2
+      },
+      "Sports": {
+        "p": 0.5,
+        "n_c": 2
+      },
+      "Domestic": {
+        "p": 0.5,
+        "n_c": 3
+      },
+      "Yellow": {
+        "p": 0.5,
+        "n_c": 3
+      },
+      "SUV": {
+        "p": 0.5,
+        "n_c": 3
+      },
+      "Imported": {
+        "p": 0.5,
+        "n_c": 2
+      }
+    }
+  }
+}

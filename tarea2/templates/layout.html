@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="ui fluid container app-boder" style="padding: 1rem;">
+    <a href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Naive fly (c)">
+    </a>
+  </div>
+
+  {% include 'includes/_navbar.html' %}
+
+  <div class="ui centered grid">
+    <div class="fourteen wide column">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="ui {{ category }} message">
+              <i class="close icon"></i>
+              <div class="header">{{ category|capitalize }}</div>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+  {% include 'includes/_footer.html' %}
+
+{% endblock %}

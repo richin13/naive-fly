@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="ui huge header">
+    <div class="content">
+      Redes
+      <div class="sub header">Clasificación usando Naive Bayes</div>
+    </div>
+  </div>
+  <p>Con este formulario se pretende determinar el tipo de una red de acuerdo a su capacidad y tamaño.</p>
+  {% include 'includes/_result.html' %}
+  <div class="ui divider"></div>
+  <form action="{{ url_for('network') }}" method="post" class="ui form {% if form.errors %}error{% endif %}">
+    {{ form.hidden_tag() }}
+    <div class="ui stackable centered grid">
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <div class="ui stackable segment">
+            <div class="field">
+              {{ form.r.label }}
+              {{ form.r(class_='ui dropdown') }}
+            </div>
+            <div class="field {% if form.l.errors %}error{% endif %}">
+              {{ form.l.label }}
+              {{ form.l(placeholder='Valores entre 7 y 20') }}
+              {% if form.l.errors %}
+                <div class="ui error message">
+                  <div class="header">Error de validación</div>
+                  <ul class="list">
+                    {% for error in form.l.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
+            <div class="field">
+              {{ form.ca.label }}
+              {{ form.ca(class_='ui dropdown') }}
+            </div>
+            <div class="field">
+              {{ form.co.label }}
+              {{ form.co(class_='ui dropdown') }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <button class="ui right floated primary big button" type="submit"><i
+              class="send icon"></i>Enviar
+          </button>
+          <button class="ui right floated big button" type="reset"><i class="undo icon"></i>Resetear</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="ui divider"></div>
+{% endblock %}

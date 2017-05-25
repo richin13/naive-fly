@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="ui huge header">
+    <div class="content">
+      Estilo de aprendizaje
+      <div class="sub header">Simplificado usando Naive Bayes</div>
+    </div>
+  </div>
+  <p>Nuevamente se pretende determinar el estilo de aprendizaje del visitante. En esta ocasión sólamente se solicitan
+    tres parámetros: Recinto de origen, Sexo y Promedio de matrícula.</p>
+  {% include 'includes/_result.html' %}
+  <div class="ui divider"></div>
+  <form action="{{ url_for('styles') }}" method="post" class="ui form {% if form.errors %}error{% endif %}">
+    {{ form.hidden_tag() }}
+    <div class="ui stackable centered grid">
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <div class="ui stackable segment">
+            <div class="field">
+              {{ form.place.label }}
+              {{ form.place(class_='ui dropdown') }}
+            </div>
+            <div class="field {% if form.prom.errors %}error{% endif %}">
+              {{ form.prom.label }}
+              {{ form.prom(class_='ui drpdown') }}
+              {% if form.prom.errors %}
+                <div class="ui error message">
+                  <div class="header">Error de validación</div>
+                  <ul class="list">
+                    {% for error in form.prom.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
+            <div class="field">
+              {{ form.sex.label }}
+              {{ form.sex(class_='ui dropdown') }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <button class="ui right floated primary big button" type="submit"><i
+              class="send icon"></i>Enviar
+          </button>
+          <button class="ui right floated big button" type="reset"><i class="undo icon"></i>Resetear</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="ui divider" style="margin-bottom: 4em"></div>
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Montserrat" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-target="#main-collapse" data-toggle="collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{{ url_for('index') }}" class="navbar-brand">Inicio</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="main-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('classic_styles') }}">Estilos</a></li>
+                <li><a href="{{ url_for('place') }}">Recinto</a></li>
+                <li><a href="{{ url_for('sex') }}">Sexo</a></li>
+                <li><a href="{{ url_for('styles') }}">Estilos 2</a></li>
+                <li><a href="{{ url_for('professor') }}">Profesor</a></li>
+                <li><a href="{{ url_for('network') }}">Redes</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" id="content">
+    {% block content %}{% endblock %}
+</div>
+</body>
+
+<script src="{{ url_for('static', filename='js/jquery-3.2.0.min.js') }}" type="application/javascript"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}" type="application/javascript"></script>
+{% block extrajs %}
+
+{% endblock %}
+</html>

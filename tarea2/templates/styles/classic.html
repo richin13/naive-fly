@@ -1,0 +1,383 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="ui huge header">
+    <div class="content">
+      Estilo de aprendizaje
+      <div class="sub header">Método de Kolb + Naive Bayes</div>
+    </div>
+  </div>
+  <p>Se pretende determinar el estilo de aprendizaje (Convergente, Divergente, Asimilador, Acomodador) usando el
+    método de Kolb para obtener los valores CA, EC, EA y OR. Sin embargo, y contrario al procedimiento tradicional
+    de operar sobre dichas columnas para determinar el estilo de aprendizaje, el sistema utilizará un clasificar
+    bayesiano con el cual intentará clasificar al usuario en uno de los cuatro estilos propuestos por el
+    método.</p>
+  {% include 'includes/_result.html' %}
+  <div class="ui divider"></div>
+  <form id="styles-form" action="{{ url_for('classic_styles') }}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="ui stackable grid">
+      <div class="sixteen column row">
+        <div class="sixteen wide tablet four wide computer column">
+          <div class="ui segments">
+            <div class="ui segment">
+              <select class="ui dropdown" id="c1" name="c1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c1">Discerniendo</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c5" name="c5">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c5">Receptivamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c9" name="c9">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c9">Sintiendo</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c13" name="c13">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c13">Aceptando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c17" name="c17">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c17">Intuitivamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c21" name="c21">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c21">Abstracto</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c25" name="c25">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c25">Orientado al presente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c29" name="c29">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c29">Aprendo más de la experiencia</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c33" name="c33">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c33">Emotivo</label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide tablet four wide computer column">
+          <div class="ui segments">
+            <div class="ui segment">
+              <select class="ui dropdown" id="c2" name="c2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c2">Ensayando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c6" name="c6">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c6">Relacionando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c10" name="c10">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c10">Observando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c14" name="c14">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c14">Arriesgando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c18" name="c18">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c18">Productivamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c22" name="c22">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c22">Observando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c26" name="c26">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c26">Reflexivamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c30" name="c30">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c30">Aprendo más de la observación</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c34" name="c34">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c34">Reservado</label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide tablet four wide computer column">
+          <div class="ui segments">
+            <div class="ui segment">
+              <select class="ui dropdown" id="c3" name="c3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c3">Involucrándome</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c7" name="c7">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c7">Analíticamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c11" name="c11">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c11">Pensando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c15" name="c15">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c15">Evaluando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c19" name="c19">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c19">Lógicamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c23" name="c23">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c23">Concreto</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c27" name="c27">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c27">Orientado hacia el futuro</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c31" name="c31">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c31">Aprendo más conceptualizando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c35" name="c35">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c35">Racional</label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide tablet four wide computer column">
+          <div class="ui segments">
+            <div class="ui segment">
+              <select class="ui dropdown" id="c4" name="c4">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c4">Practicando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c8" name="c8">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c8">Imparcialmente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c12" name="c12">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c12">Haciendo</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c16" name="c16">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c16">Cautelosamente</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c20" name="c20">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c20">Cuestionando</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c24" name="c24">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c24">Activo</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c28" name="c28">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c28">Pragmático</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c32" name="c32">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c32">Aprendo más de la experimentación</label>
+            </div>
+            <div class="ui segment">
+              <select class="ui dropdown" id="c36" name="c36">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="c36">Abierto</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen column row">
+        <div class="sixteen wide column">
+          <button id="btn-form-submit" class="ui right floated primary big button" type="submit"><i
+              class="send icon"></i>Enviar
+          </button>
+          <button class="ui right floated big button" type="reset"><i class="undo icon"></i>Resetear</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="ui divider"></div>
+{% endblock %}
+
+{% if result %}
+  {% block modals %}
+
+  {% endblock %}
+{% endif %}
+
+{% block extra_js %}
+  <script type="application/javascript" src="{{ url_for('static', filename='js/styles.js') }}"></script>
+{% endblock %}

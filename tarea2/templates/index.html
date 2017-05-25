@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="ui stackable grid">
+    <div class="sixteen column row">
+      <div class="three wide centered center aligned column">
+        <div class="ui icon header">
+          <i class="student icon"></i>
+          <div class="content">
+            Estilos de aprendizaje
+            <div class="sub header">Descubre tu estilo de aprendizaje</div>
+          </div>
+        </div>
+      </div>
+      <div class="thirteen wide column">
+        <p>Se pretende determinar el estilo de aprendizaje (Convergente, Divergente, Asimilador, Acomodador) usando el
+          método de Kolb para obtener los valores CA, EC, EA y OR. Sin embargo, y contrario al procedimiento tradicional
+          de operar sobre dichas columnas para determinar el estilo de aprendizaje, el sistema utilizará un clasificar
+          bayesiano con el cual intentará clasificar al usuario en uno de los cuatro estilos propuestos por el
+          método.</p>
+        <a href="{{ url_for('classic_styles') }}" class="ui right floated black button">Descubrir</a>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="sixteen column row">
+      <div class="thirteen wide column">
+        <p>Se pretende determinar el lugar o recinto de origen del visitante. Para esto se solicitan tres parámetros:
+          Estilo
+          de aprendizaje, Sexo y Promedio de Matrícula. De igual forma, estos datos son comparados con los datos
+          existentes en
+          la base de datos.</p>
+        <a href="{{ url_for('place') }}" class="ui left floated black button">Descubrir</a>
+      </div>
+      <div class="three wide centered center aligned column">
+        <div class="ui icon header">
+          <i class="university icon"></i>
+          <div class="content">
+            Recinto
+            <div class="sub header">Descubre tu estilo de aprendizaje</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="sixteen column row">
+      <div class="three wide centered center aligned column">
+        <div class="ui icon header">
+          <i class="intergender icon"></i>
+          <div class="content">
+            Sexo
+            <div class="sub header">Descubre tu estilo de aprendizaje</div>
+          </div>
+        </div>
+      </div>
+      <div class="thirteen wide column">
+        <p>En este caso se pretende determinar el sexo del visitante. Para esto se solicitan tres parámetros: Estilo de
+          aprendizaje, Recinto de origen y Promedio de Matrícula. De igual forma, estos datos son comparados con los
+          datos
+          existentes en la base de datos.</p>
+        <a href="{{ url_for('gender') }}" class="ui right floated black button">Descubrir</a>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="sixteen column row">
+      <div class="thirteen wide column">
+        <p>Nuevamente se pretende determinar el estilo de aprendizaje del visitante. En esta ocasión sólamente se
+          solicitan
+          tres parámetros: Recinto de origen, Sexo y Promedio de matrícula.</p>
+        <a href="{{ url_for('styles') }}" class="ui left floated black button">Descubrir</a>
+      </div>
+      <div class="three wide centered center aligned column">
+        <div class="ui icon header">
+          <i class="laptop icon"></i>
+          <div class="content">
+            Estilos
+            <div class="sub header">Descubre tu estilo de aprendizaje</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="sixteen column row">
+      <div class="three wide centered center aligned column">
+        <div class="ui icon header">
+          <i class="book icon"></i>
+          <div class="content">
+            Profesor
+            <div class="sub header">Clasificar un profesor</div>
+          </div>
+        </div>
+      </div>
+      <div class="thirteen wide column">
+        <p>Con este formulario se pretende determinar el nivel o tipo de un profesor de acuerdo a sus datos de
+          experiencia y conocimiento.</p>
+        <a href="{{ url_for('professor') }}" class="ui right floated black button">Descubrir</a>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="sixteen column row">
+      <div class="thirteen wide column">
+        <p>Con este formulario se pretende determinar el tipo de una red de acuerdo a su capacidad y tamaño.</p>
+        <a href="{{ url_for('network') }}" class="ui left floated black button">Descubrir</a>
+      </div>
+      <div class="three wide centered center aligned column">
+        <div class="ui icon header">
+          <i class="server icon"></i>
+          <div class="content">
+            Redes
+            <div class="sub header">Clasificar una red</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

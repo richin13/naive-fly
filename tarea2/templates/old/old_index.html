@@ -1,0 +1,114 @@
+{% extends "base2.html" %}
+
+{% block content %}
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h1>Sistemas Expertos
+        <small>Calculo de <a href="https://en.wikipedia.org/wiki/Euclidean_distance" target="_blank">distancia
+          Euclidiana</a></small>
+      </h1>
+    </div>
+    <p>Sitio web correspondiente a la solución de la tarea #1 de IF-7300 - Sistemas Expertos: "Cálculo de distancia
+      Euclideana".</p>
+    <p>Realizado por: <strong>Ricardo Madriz</strong>, carné número <strong>B23847</strong>.</p>
+    <p>Año 2017 - &copy;</p>
+
+    <hr/>
+    <div class="forms">
+      <div class="col-xs-12 col-sm-5 lefty">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><a href="{{ url_for('classic_styles') }}">Estilos</a>
+              <small>Clásico</small>
+            </h3>
+          </div>
+          <div class="panel-body">
+            En este formulario se busca determinar el estilo de aprendizaje del visitante, se solicita la
+            misma
+            información que en el sitio de <a href="http://multi.ucr.ac.cr/estilo.htm">multimedios</a>, sin
+            embargo,
+            no se utiliza la fórmula de las cólumnas sino que se comparan los datos ingresados con los datos
+            históricos que posee la aplicación.
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-7 righty">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><a href="{{ url_for('place') }}">Recinto</a></h3>
+          </div>
+          <div class="panel-body">
+            Se pretende determinar el lugar o recinto de origen del visitante. Para esto se solicitan tres
+            parámetros:
+            Estilo de aprendizaje, Sexo y Promedio de Matrícula. De igual forma, estos datos son comparados
+            con
+            los
+            datos existentes en la base de datos.
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5 lefty">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><a href="{{ url_for('sex') }}">Sexo</a></h3>
+          </div>
+          <div class="panel-body">
+            En este caso se pretende determinar el sexo del visitante. Para esto se solicitan tres
+            parámetros:
+            Estilo de aprendizaje, Recinto de origen y Promedio de Matrícula. De igual forma, estos datos
+            son
+            comparados con los datos existentes en la base de datos.
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-7 righty">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><a href="{{ url_for('styles') }}">Estilos</a></h3>
+          </div>
+          <div class="panel-body">
+            Nuevamente se pretende determinar el estilo de aprendizaje del visitante. En esta ocasión
+            sólamente
+            se
+            solicitan tres parámetros: Recinto de origen, Sexo y Promedio de matrícula.
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5 lefty">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><a href="{{ url_for('professor') }}">Profesor</a></h3>
+          </div>
+          <div class="panel-body">
+            Con este formulario se pretende determinar el nivel o tipo de un profesor de acuerdo a sus datos
+            de
+            experiencia y conocimiento.
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-7 righty">
+
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><a href="{{ url_for('network') }}">Redes</a></h3>
+          </div>
+          <div class="panel-body">
+            Con este formulario se pretende determinar el tipo de una red de acuerdo a su capacidad y
+            tamaño.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+
+
+
+
+
+
+  </div>
+
+{% endblock %}
